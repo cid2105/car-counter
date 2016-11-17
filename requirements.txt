@@ -10,3 +10,4 @@ pytz==2014.4
 six==1.7.2
 numpy==1.11.0
 tensorflow==0.6.0
+git+git://github.com/tensorflow/tensorflow@master
