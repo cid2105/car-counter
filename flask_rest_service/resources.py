@@ -5,9 +5,6 @@ from flask.ext.restful import reqparse
 from flask_rest_service import app, api
 from models.YOLO_small_tf import YOLO_TF
 
-if __name__=='__main__':	
-	main(sys.argv)
-
 ALLOWED_EXTENSIONS = ["png","jpg","jpeg"]
 def allowed_file(fn):
     return '.' in fn and fn.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
