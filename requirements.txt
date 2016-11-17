@@ -9,3 +9,4 @@ itsdangerous==0.24
 pytz==2014.4
 six==1.7.2
 numpy==1.11.0
+tensorflow==0.8.0
