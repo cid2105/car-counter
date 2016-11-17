@@ -6,19 +6,21 @@ from flask_rest_service import app, api
 from models.YOLO_small_tf import YOLO_TF
 
 ALLOWED_EXTENSIONS = ["png","jpg","jpeg"]
+model = YOLO_TF()
+
 def allowed_file(fn):
     return '.' in fn and fn.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 class CarCounter(restful.Resource):
-	def __init__(self):
-	    self.model = YOLO_TF()
 
 	def get(self):
-		return self.model.test_predict("test/car.jpg")
+		print "testing model ..."
+		return model.test_predict("test/car.jpg")
 
 	def post(self):
+		print "recieved image to classify ..."
 		if "image" in request.files and allowed_file(request.files["image"].filename):
-			return self.model.predict(request.files["image"])
+			return model.predict(request.files["image"])
 		else:
 			return Response(status=500)
 
