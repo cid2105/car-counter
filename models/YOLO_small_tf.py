@@ -1,3 +1,4 @@
+import urllib
 import numpy as np
 import tensorflow as tf
 import cv2
@@ -19,6 +20,8 @@ class YOLO_TF:
 	h_img = 480
 
 	def __init__(self,argvs = []):
+		if not os.path.isfile(self.weights_file):
+			urllib.urlretrieve ("https://www.dropbox.com/s/bf9py7vyqvw1ltr/YOLO_small.ckpt?dl=1", self.weights_file)
 		self.disp_console = True
 		self.build_networks()
 
